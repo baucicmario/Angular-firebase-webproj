@@ -20,13 +20,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './products/products.component';
+import { KosarComponent } from './kosar/kosar.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { UserLoginComponent } from './nav/user-login/user-login.component';
+import {MatBadgeModule} from '@angular/material/badge'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    CimformComponent
+    CimformComponent,
+    ProductsComponent,
+    KosarComponent,
+    UserLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +55,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatBadgeModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

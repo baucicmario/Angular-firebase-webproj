@@ -49,6 +49,6 @@ export class CimformComponent {
   constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
-    alert('Thanks!');
+    alert('regisztracio sikeres');
   }
 }
