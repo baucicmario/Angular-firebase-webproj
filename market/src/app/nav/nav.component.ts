@@ -12,6 +12,9 @@ import { map, shareReplay  } from 'rxjs/operators';
 })
 export class NavComponent {
   logedIn
+  public cone=false
+  imageUrl: string = "";
+  cartItems: number = 0
   @Input() currentRoute!: string; 
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -19,13 +22,16 @@ export class NavComponent {
       map(result => result.matches),
       shareReplay()
     );
-    
-
   constructor(private breakpointObserver: BreakpointObserver) {
     this.logedIn = false
+    this.cartItems = 0
   }
-
-  
+  addItem(){
+    this.cartItems = this.cartItems+1;
+  }
+  removeItem(){
+    this.cartItems = this.cartItems-1;
+  }
 
   isAuthenticated(){
     return this.logedIn
@@ -36,5 +42,9 @@ export class NavComponent {
   }
   logedOut(){
     this.logedIn = false
+  }
+  bigToggle(event:any){
+    this.cone = event.checked
+
   }
 }

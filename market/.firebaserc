@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "webfejleszte-bmario"
+  },
+  "targets": {
+    "webfejleszte-bmario": {
+      "hosting": {
+        "market": [
+          "webfejleszte-bmario"
+        ]
+      }
+    }
+  }
+}

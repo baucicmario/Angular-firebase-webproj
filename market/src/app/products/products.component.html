@@ -1,21 +1,23 @@
 <div class="grid-container">
   <h1 class="mat-h1">Termékek</h1>
-  <mat-grid-list cols="4" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <mat-grid-list cols="5" rowHeight="310px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
+            <div></div>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>törlés</button>
+             
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <img src="{{card.img}}" alt="{{card.img}}">
+          
+          <p>{{allproducts}}</p>
+          
+      <button mat-raised-button color="primary">kosárba</button>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

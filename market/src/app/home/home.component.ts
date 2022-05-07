@@ -8,6 +8,8 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  public cone=false
+  public ctwo=false
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -28,6 +30,8 @@ export class HomeComponent {
       ];
     })
   );
-
+    darkToggle(event:any){
+      this.cone = !event.checked
+    }
   constructor(private breakpointObserver: BreakpointObserver) {}
 }

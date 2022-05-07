@@ -15,3 +15,12 @@
   top: 0;
   z-index: 1;
 }
+
+.big{
+  font-size: 35px;
+  margin-top: 1rem;
+}
+.wide{
+  
+  width: 300px;
+}

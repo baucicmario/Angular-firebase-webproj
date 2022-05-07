@@ -24,9 +24,15 @@ import { ProductsComponent } from './products/products.component';
 import { KosarComponent } from './kosar/kosar.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 import { UserLoginComponent } from './nav/user-login/user-login.component';
-import {MatBadgeModule} from '@angular/material/badge'
+import {MatBadgeModule} from '@angular/material/badge';
+import { DefaultPipe } from './default.pipe'
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'
+import {MatSliderModule} from '@angular/material/slider';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { HttpClientModule  } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,6 +44,7 @@ import {MatBadgeModule} from '@angular/material/badge'
     ProductsComponent,
     KosarComponent,
     UserLoginComponent,
+    DefaultPipe,
   ],
   imports: [
     BrowserModule,
@@ -58,10 +65,15 @@ import {MatBadgeModule} from '@angular/material/badge'
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSlideToggleModule,
+    MatSliderModule,
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

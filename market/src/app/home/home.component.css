@@ -1,5 +1,8 @@
 .grid-container {
   margin: 20px;
+  
+  border-radius: 1rem;
+  padding: 1rem;
 }
 
 .dashboard-card {
@@ -8,6 +11,8 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  color: rgb(215, 215, 215);
+  
 }
 
 .more-button {
@@ -18,4 +23,17 @@
 
 .dashboard-card-content {
   text-align: center;
+}
+
+.classLightCard{
+  background-color: rgb(0, 179, 255);
+  color: rgb(71, 71, 71);
+  border-radius: 0.5rem;
+}
+.classLightBackground{
+  background-color: rgb(184, 184, 184);
+  color: rgb(71, 71, 71);
+}
+.toggleClass{
+  color: brown;
 }

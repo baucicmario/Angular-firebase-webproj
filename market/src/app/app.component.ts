@@ -10,6 +10,7 @@ import { Router,NavigationStart, Event as NavigationEvent } from '@angular/route
 })
 export class AppComponent {
   currentRoute!: string
+  
   event$ 
  
   constructor(private router: Router) {

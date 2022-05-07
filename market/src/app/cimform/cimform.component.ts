@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cimform',
   templateUrl: './cimform.component.html',
   styleUrls: ['./cimform.component.css']
 })
+
 export class CimformComponent {
   addressForm = this.fb.group({
-    company: null,
+    email: [null, Validators.required],
+    pword: [null, Validators.required],
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
     address: [null, Validators.required],
@@ -22,33 +25,35 @@ export class CimformComponent {
   });
 
   hasUnitNumber = false;
-
+  
   states = [
-    {name: 'Bács-Kiskun', abbreviation: 'AL'},
-    {name: 'Baranya', abbreviation: 'AK'},
-    {name: 'Békés', abbreviation: 'AS'},
-    {name: 'Borsod-Abaúj-Zemplén', abbreviation: 'AZ'},
-    {name: 'Csongrád-Csanád', abbreviation: 'AR'},
-    {name: 'Fejér', abbreviation: 'CA'},
-    {name: 'Győr-Moson-Sopron', abbreviation: 'CO'},
-    {name: 'Hajdú-Bihar', abbreviation: 'CT'},
-    {name: 'Heves', abbreviation: 'DE'},
-    {name: 'Jász-Nagykun-Szolnok', abbreviation: 'DC'},
-    {name: 'Komárom-Esztergom', abbreviation: 'FM'},
-    {name: 'Nógrád', abbreviation: 'FL'},
-    {name: 'Pest', abbreviation: 'GA'},
-    {name: 'Somogy', abbreviation: 'GU'},
-    {name: 'Szabolcs-Szatmár-Bereg', abbreviation: 'HI'},
-    {name: 'Tolna', abbreviation: 'ID'},
-    {name: 'Vas', abbreviation: 'IL'},
-    {name: 'Veszprém', abbreviation: 'IN'},
-    {name: 'Zala', abbreviation: 'IA'}
+    {name: 'Bács-Kiskun', abbreviation: 'BK'},
+    {name: 'Baranya', abbreviation: 'BA'},
+    {name: 'Békés', abbreviation: 'BE'},
+    {name: 'Borsod-Abaúj-Zemplén', abbreviation: 'BAZ'},
+    {name: 'Csongrád-Csanád', abbreviation: 'CS'},
+    {name: 'Fejér', abbreviation: 'F'},
+    {name: 'Győr-Moson-Sopron', abbreviation: 'GYMS'},
+    {name: 'Hajdú-Bihar', abbreviation: 'HB'},
+    {name: 'Heves', abbreviation: 'HE'},
+    {name: 'Jász-Nagykun-Szolnok', abbreviation: 'JNSZ'},
+    {name: 'Komárom-Esztergom', abbreviation: 'KE'},
+    {name: 'Nógrád', abbreviation: 'NO'},
+    {name: 'Pest', abbreviation: 'PE'},
+    {name: 'Somogy', abbreviation: 'SO'},
+    {name: 'Szabolcs-Szatmár-Bereg', abbreviation: 'SZSZB'},
+    {name: 'Tolna', abbreviation: 'TO'},
+    {name: 'Vas', abbreviation: 'VA'},
+    {name: 'Veszprém', abbreviation: 'VE'},
+    {name: 'Zala', abbreviation: 'ZA'}
    
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
 
   onSubmit(): void {
-    alert('regisztracio sikeres');
+    
+    this.httpClient.post("https://webfejleszte-bmario-default-rtdb.firebaseio.com/users.json",this.addressForm.value).subscribe(Response => console.log(Response))
+    alert('regisztracio sikeres, LÉPJEN BE! :D');
   }
 }
