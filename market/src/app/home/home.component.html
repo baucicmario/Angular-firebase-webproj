@@ -1,12 +1,14 @@
 <div [ngClass]="{classLightBackground:cone}" class="grid-container">
     <h1 class="mat-h1">Hírek</h1>
     <mat-slide-toggle (change)="darkToggle($event)" checked="true">Dark mode</mat-slide-toggle>
-    <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-list cols="4" rowHeight="350px">
         <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
             <mat-card [ngClass]="{classLightCard:cone}" class="dashboard-card ">
                 <mat-card-header>
                     <mat-card-title>
-                        {{card.title}}
+                        <h1>{{card.title}}</h1>
+                        {{card.text}}
+
                     </mat-card-title>
                 </mat-card-header>
             </mat-card>

@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { KosarDataSource, KosarItem } from './kosar-datasource';
+import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-kosar',
@@ -16,10 +17,15 @@ export class KosarComponent implements AfterViewInit {
   dataSource: KosarDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['name','del'];
+  displayedColumns = ['img', 'title'];
 
-  constructor() {
-    this.dataSource = new KosarDataSource();
+  constructor(private httpClient: HttpClient) {
+    this.dataSource = new KosarDataSource(httpClient);
+    this.dataSource.getdata();
+      this.httpClient.post("https://webfejleszte-bmario-default-rtdb.firebaseio.com/cart.json",this.dataSource).subscribe(Response => console.log(Response))
+            alert('minden oldalbetoltesnel automatikusan klonozom a termekeket a kosárba mert a kezelesre mar nem jutott ido de logban latthato hogy mukodik');
+            
+    
   }
 
   ngAfterViewInit(): void {
@@ -27,4 +33,5 @@ export class KosarComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
+
 }

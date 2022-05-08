@@ -21,7 +21,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule,FormsModule  } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
-import { KosarComponent } from './kosar/kosar.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UserLoginComponent } from './nav/user-login/user-login.component';
@@ -36,6 +35,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 
 import { AngularFireStorageModule, BUCKET  } from '@angular/fire/compat/storage';
+import { MatSortModule } from '@angular/material/sort';
+import { KosarComponent } from './kosar/kosar.component';
 
 
 
@@ -47,9 +48,9 @@ import { AngularFireStorageModule, BUCKET  } from '@angular/fire/compat/storage'
     HomeComponent,
     CimformComponent,
     ProductsComponent,
-    KosarComponent,
     UserLoginComponent,
     DefaultPipe,
+    KosarComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +78,7 @@ import { AngularFireStorageModule, BUCKET  } from '@angular/fire/compat/storage'
     FormsModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    MatSortModule,
     
   ],
   providers: [
