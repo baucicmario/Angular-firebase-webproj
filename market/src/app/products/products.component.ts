@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  allproducts
+  prod = Object
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       return [
@@ -30,8 +30,18 @@ export class ProductsComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private httpClient: HttpClient) {
     
-    this.allproducts = this.httpClient.get("https://webfejleszte-bmario-default-rtdb.firebaseio.com/products.json").subscribe(products => console.log(products))
-    
-    
+    const a: any[] = [];
+    let json:any 
+    let ret
+    this.httpClient.get("https://webfejleszte-bmario-default-rtdb.firebaseio.com/products.json")
+    .subscribe(products => {
+            json=Object.values(products);
+            console.log(json)
+            for (var val of json) {
+              for (var val2 of val) {
+                console.log(val2)
+              }
+            }
+          })
   }
 }

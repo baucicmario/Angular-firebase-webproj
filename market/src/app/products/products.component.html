@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Termékek</h1>
+  <h1 class="mat-h1">Termékek konzolon kiirja a firebases megfelelojuket de nem sikerult osszekotnom oket sajnos :(</h1>
   <mat-grid-list cols="5" rowHeight="310px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
@@ -15,7 +15,6 @@
         <mat-card-content class="dashboard-card-content">
           <img src="{{card.img}}" alt="{{card.img}}">
           
-          <p>{{allproducts}}</p>
           
       <button mat-raised-button color="primary">kosárba</button>
         </mat-card-content>

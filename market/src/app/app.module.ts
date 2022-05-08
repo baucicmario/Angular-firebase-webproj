@@ -19,7 +19,7 @@ import { CimformComponent } from './cimform/cimform.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule  } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { KosarComponent } from './kosar/kosar.component';
 import { MatTableModule } from '@angular/material/table';
@@ -29,10 +29,15 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { DefaultPipe } from './default.pipe'
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import {MatSliderModule} from '@angular/material/slider';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HttpClientModule  } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire/compat';
+
+
+import { environment } from '../environments/environment';
+
+import { AngularFireStorageModule, BUCKET  } from '@angular/fire/compat/storage';
+
+
 
 
 @NgModule({
@@ -69,11 +74,14 @@ import { HttpClientModule  } from '@angular/common/http';
     MatSlideToggleModule,
     MatSliderModule,
     HttpClientModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    FormsModule,
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     
   ],
-  providers: [],
+  providers: [
+    { provide: BUCKET, useValue: 'my-bucket-name' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

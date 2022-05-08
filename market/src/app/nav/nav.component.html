@@ -5,8 +5,10 @@
         [opened]="(isHandset$ | async) === false">
       <mat-toolbar>Menu</mat-toolbar>
       <mat-nav-list color="primary">
-        <a [ngClass]="{big:cone}" mat-list-item routerLink ='/home'>
-          <mat-icon matListIcon>home</mat-icon>Home</a>
+        <a [ngClass]="{big:cone}" mat-list-item routerLink ='/edit'>
+          <mat-icon matListIcon>edit</mat-icon>Profil</a>
+          <a [ngClass]="{big:cone}" mat-list-item routerLink ='/home'>
+            <mat-icon matListIcon>home</mat-icon>Home</a>
         <a  [ngClass]="{big:cone}" mat-list-item routerLink ='/products'>
           <mat-icon matListIcon>store</mat-icon>Termékek</a>
         <a  [ngClass]="{big:cone}" *ngIf="!isAuthenticated()" mat-list-item routerLink ='/cimform'>

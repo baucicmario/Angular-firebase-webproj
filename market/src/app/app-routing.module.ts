@@ -6,7 +6,10 @@ import { KosarComponent } from './kosar/kosar.component';
 import { ProductsComponent } from './products/products.component';
 import { UserLoginComponent } from './nav/user-login/user-login.component';
 
+import { CommonModule } from '@angular/common';
+
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path:'home', component:HomeComponent},
   {path:'cimform', component:CimformComponent},
   {path:'products', component:ProductsComponent},
@@ -16,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [CommonModule,RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
