@@ -14,7 +14,7 @@ export class AppComponent {
   event$ 
  
   constructor(private router: Router) {
-    alert('PLZ a home oldalon nezd vegig a leirast segít az osztalyzasban mit hol találsz! (undorítóan rendetlen program)');
+    alert('PLZ a home oldalon nezd vegig a leirast segít az osztalyzasban mit hol találsz!');
             
     this.event$
       =this.router.events
